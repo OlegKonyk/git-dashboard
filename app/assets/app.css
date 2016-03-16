@@ -30,7 +30,11 @@ html, body {
 svg > text {
   display: none;;
 }
-
+.gray{background-color: #EEEEEE;}
+.description{
+  font-size: 0.7em;
+  color: #616161;
+}
   /*.mid-hide {
     transition:0.5s linear all;
     display: none !important;

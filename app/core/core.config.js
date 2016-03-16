@@ -14,7 +14,7 @@
 			.when('/radar-dashboard', {
 				template: '<git-dashboard></git-dashboard>'
 			})
-			.when('/radar-dashboard/commits/:repo', {
+			.when('/radar-dashboard/commits/:owner/:repo', {
 				template: '<git-commits></git-commits>'
 			})
 			.when('/tstt-dashboard', {

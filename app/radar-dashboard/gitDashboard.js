@@ -42,17 +42,55 @@
               ctrl.changeOrder = function() {
                 ctrl.order(ctrl.selectedOrder, true)
               };
-            
-
-            gitDashboard.resource.get({}).$promise
+            /*if(!gitDashboard.allRepos){
+                console.log(gitDashboard.allRepos)
+                gitDashboard.resource.get({}).$promise
                     .then(function(data){
-                        console.log(data);
+                        gitDashboard.allRepos = data;
+                        console.log(gitDashboard.allRepos);
                         ctrl.allRepos = data;
                         ctrl.show = false;
                         ctrl.order(ctrl.orderOptions[0], true);
-                        // /service.graphsData.byPerson = data;
-                        //return data;
+                        ctrl.error = null;
+                    }, function(err){
+                        console.log(err)
+                        ctrl.error = err.data;
                     });
+            }else{
+                ctrl.show = false;
+                ctrl.allRepos = gitDashboard.allRepos;
+                ctrl.show = false;
+                ctrl.order(ctrl.orderOptions[0], true);
+            }*/
+            //console.log(gitDashboard.compliteList)
+            //ctrl.compliteList = gitDashboard.compliteList;
+
+            /*gitDashboard.getCompliteList()
+                .then(function(data){
+                    console.log(data)
+                })*/
+
+            if(!gitDashboard.allRepos){
+                console.log(gitDashboard.allRepos)
+                gitDashboard.getCompliteList()
+                    .then(function(data){
+                        gitDashboard.allRepos = [].concat.apply([], data);;
+                        ctrl.allRepos = gitDashboard.allRepos
+                        ctrl.show = false;
+                        ctrl.order(ctrl.orderOptions[0], true);
+                        ctrl.error = null;
+                        console.log(ctrl.allRepos)
+                    }, function(err){
+                            console.log(err)
+                            ctrl.error = err.data;
+                    })
+            }else{
+                ctrl.show = false;
+                ctrl.allRepos = gitDashboard.allRepos;
+                ctrl.show = false;
+                ctrl.order(ctrl.orderOptions[0], true);
+            }
+            
             
             
             

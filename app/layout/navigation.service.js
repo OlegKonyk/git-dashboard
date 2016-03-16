@@ -15,7 +15,6 @@
        
         service.data = {};
         service.data.sections = getAllSections();
-        console.log(service.data.sections);
         service.data.pinedNav = getPinedNav();
         service.getPinedNav = getPinedNav;
         service.data.isMiniNav = service.data.pinedNav ? false : true;

@@ -1,3 +1,12 @@
+<!--div ng-if="$ctrl.error" layout="column">  
+  <md-toolbar class="md-warn">
+    <div class="md-toolbar-tools">
+      <h2 class="md-flex">ERROR: {{$ctrl.error.message}}</h2>
+    </div>
+  </md-toolbar>
+<div-->
+
+
 <div layout="column">
 
   <!--div class="container visible" ng-show="$ctrl.show" >
@@ -54,6 +63,8 @@
 
   </div>
 
+  <div>{{$ctrl.allRepos.length}}</div>
+
 
     <!--div ng-repeat="repo in $ctrl.allRepos | filter:$ctrl.searchText">
       <md-card>
@@ -85,7 +96,7 @@
                 </div>
                   
               </div>
-              <div class="description" style="margin: 10px 0px 15px 0px">
+              <div class="description" style="margin: 10px 0px 15px 0px;">
                   <span class="md-subhead">{{repo.description}}</span>
               </div>
 
@@ -94,7 +105,7 @@
               </div>
             
           <md-card-actions layout="row" layout-align="end center">
-            <md-button ng-href="#/radar-dashboard/commits/{{repo.name}}">Browse commits</md-button>
+            <md-button class="md-accent" ng-href="#/radar-dashboard/commits/{{repo.owner.login}}/{{repo.name}}">Browse commits</md-button>
           </md-card-actions>
           <md-divider class="md-default-theme"></md-divider>
       </div>
