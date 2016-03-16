@@ -1,0 +1,15 @@
+<md-toolbar class="md-whiteframe-z2 md-hue-1">
+
+    <div class="md-toolbar-tools">
+
+        <md-button hide-gt-sm ng-click="$ctrl.toggleSideNav()" class="md-icon-button">
+            <md-icon md-svg-icon="menu"></md-icon> 
+        </md-button>
+
+        <h1 hide show-gt-xs>
+            <span ng-repeat="path in $ctrl.getCurrentLocation()"><ng-md-icon  ng-if="$index>0" icon="chevron_right" style="fill:#455A64"></ng-md-icon>{{path.name}}</span>
+        </h1>
+
+    </div>
+    
+</md-toolbar>

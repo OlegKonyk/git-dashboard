@@ -1,0 +1,118 @@
+<div layout="column">
+
+  <!--div class="container visible" ng-show="$ctrl.show" >
+    <md-progress-linear md-mode="query"></md-progress-linear>
+    <div class="bottom-block">
+      <span>Loading Initial data...</span>
+    </div>
+  </div-->
+
+  <div layout="row" ng-show="$ctrl.show" layout-sm="column" layout-align="space-around">
+    <md-progress-circular md-mode="indeterminate"  md-diameter="100" class="md-accent"></md-progress-circular>
+  </div>
+
+  <div flex ng-show="!$ctrl.show" >
+    <!--section  style="" class="md-whiteframe-z1" style="margin-top: 10px;">
+      <div>
+          <div style="padding: 16px; font-size: 1.6rem;">Heap Used</div>
+      </div>
+      <md-divider class="md-default-theme"></md-divider>
+      
+      
+      
+   
+    </section-->
+
+  <div layout="row" layout-align="center center">
+  <div flex>
+  <md-input-container>
+  <label>Order By</label>
+    <md-select placeholder="Sort By" ng-model="$ctrl.selectedOrder" ng-change="$ctrl.changeOrder()" style="min-width: 200px;">
+      <md-option ng-value="option" ng-repeat="option in $ctrl.orderOptions">{{option.name}}</md-option>
+    </md-select>
+  </md-input-container>
+  </div>
+
+  <div flex>
+  <div>
+        <md-autocomplete
+        md-search-text="$ctrl.searchText"
+        md-items="repo in $ctrl.allRepos | filter:$ctrl.searchText"
+        md-item-text="repo.name"
+        md-min-length="3"
+        placeholder="Search...">
+        <md-item-template>
+            <span md-highlight-text="$ctrl.searchText" md-highlight-flags="^i">{{repo.name}}</span>
+        </md-item-template>
+        <md-not-found>
+            No repo matching "{{$ctrl.searchText}}" were found.          
+        </md-not-found>
+        </md-autocomplete>
+    </div> 
+    </div> 
+
+
+  </div>
+
+
+    <!--div ng-repeat="repo in $ctrl.allRepos | filter:$ctrl.searchText">
+      <md-card>
+        <md-card-title>
+          <md-card-title-text>
+            <span class="md-headline">{{repo.name}} Forks: {{repo.forks}} Stars: {{repo.stargazers_count}}</span>
+            <span class="md-subhead">{{repo.description}}</span>
+          </md-card-title-text>
+          <md-card-title-media>
+            <div class="md-media-sm card-media"></div>
+          </md-card-title-media>
+        </md-card-title>
+        <md-card-actions layout="row" layout-align="end center">
+          <md-button ng-href="#/radar-dashboard/commits/{{repo.name}}">Browse commits</md-button>
+        </md-card-actions>
+      </md-card>
+    </div-->
+    <section  style="background: white;" class="md-whiteframe-z1">
+      <div class="md-padding" ng-repeat="repo in $ctrl.allRepos | filter:$ctrl.searchText">
+              <div layout="row">
+                <div flex>
+                  <h2 style="color: #B71C1C; margin: 0">{{repo.name}}</h2>
+                </div>
+                <div flex class="metrics">
+                  <span>{{repo.language}}</span>
+                  <ng-md-icon icon="call_split"></ng-md-icon><span>{{repo.forks}}</span>
+                  <ng-md-icon icon="star"></ng-md-icon><span>{{repo.stargazers_count}}</span>
+                  
+                </div>
+                  
+              </div>
+              <div class="description" style="margin: 10px 0px 15px 0px">
+                  <span class="md-subhead">{{repo.description}}</span>
+              </div>
+
+              <div>
+                  <span class="md-subhead">Last push at: {{repo.pushed_at  | date: 'short'}}</span>
+              </div>
+            
+          <md-card-actions layout="row" layout-align="end center">
+            <md-button ng-href="#/radar-dashboard/commits/{{repo.name}}">Browse commits</md-button>
+          </md-card-actions>
+          <md-divider class="md-default-theme"></md-divider>
+      </div>
+
+    </section>
+
+
+  </div>
+
+
+</div>
+
+
+
+
+
+
+
+
+
+

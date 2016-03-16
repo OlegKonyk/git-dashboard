@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="description" content="">
+        <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no" />
+        <base href="/#">
+        <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:400,500,700,400italic">
+        <link rel="stylesheet" href="./bower_components/angular-material/angular-material.css"/>
+        <link rel="stylesheet" href="./bower_components/angular-material-icons/angular-material-icons.css"/>
+        <link rel="stylesheet" href="./bower_components/nvd3/nv.d3.css">
+        <link rel="stylesheet" href="./app/assets/app.css"/>
+        <style type="text/css">
+            [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+            display: none !important;
+            }
+        </style>
+    </head>
+    <body>
+        <layout></layout>
+        
+        <script src="https://cdn.socket.io/socket.io-1.3.5.js"></script>
+        
+        <script src="./bower_components/angular/angular.js"></script>
+        <script src="./bower_components/angular-route/angular-route.js"></script>
+        <script src="./bower_components/angular-animate/angular-animate.js"></script>
+        <script src="./bower_components/angular-resource/angular-resource.js"></script>
+        <script src="./bower_components/angular-aria/angular-aria.js"></script>
+        <script src="./bower_components/angular-material-icons/angular-material-icons.js"></script>
+        <script src="./bower_components/angular-material/angular-material.js"></script>
+        
+        <script type="text/javascript" src="https://code.highcharts.com/highcharts.js"></script>
+        
+        
+        
+        <script src="./app/app.module.js"></script>
+
+        <script src="./app/core/core.module.js"></script>        
+        <script src="./app/core/core.config.js"></script>
+
+        <script src="./app/blocks/socket/socket.module.js"></script>
+        <script src="./app/blocks/socket/socket.service.js"></script>
+
+        <script src="./app/layout/layout.module.js"></script>
+        <script src="./app/layout/layout.js"></script>
+        <script src="./app/layout/toolbarHeader.js"></script>
+        <script src="./app/layout/navigation.service.js"></script>
+        <script src="./app/layout/menuLink.js"></script>
+        
+        <script src="./app/widgets/widgets.module.js"></script>
+        <script src="./app/widgets/gitWidget.js"></script>
+        <script src="./app/widgets/gitWidget.service.js"></script>
+        
+        
+        <script src="./app/radar-dashboard/radarDashboard.module.js"></script>
+        <script src="./app/radar-dashboard/gitDashboard.js"></script>
+        <script src="./app/radar-dashboard/gitDashboard.service.js"></script>
+
+        <script src="./app/git-commits/gitCommits.module.js"></script>
+        <script src="./app/git-commits/gitCommits.js"></script>
+        <script src="./app/git-commits/gitCommits.service.js"></script>
+        
+        <!--script src="./bower_components/d3/d3.js"></script>
+        <script src="./bower_components/nvd3/nv.d3.js"></script>
+        <script src="./bower_components/angular-nvd3/dist/angular-nvd3.js"></script>
+        <script src="./bower_components/angularjs-nvd3-directives/dist/angularjs-nvd3-directives.js"></script-->
+
+    </body>
+</html>
+
+

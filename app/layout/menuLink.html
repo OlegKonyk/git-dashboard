@@ -1,0 +1,5 @@
+<md-button ng-class="{'active' : $ctrl.isSelected()}" ng-href="{{$ctrl.section.url}}">
+
+ 	<ng-md-icon ng-if="$ctrl.section.icon" class="left-nav-icon" icon="{{$ctrl.section.icon}}"></ng-md-icon><span ng-if="!$ctrl.data.isMiniNav">{{$ctrl.section.name}}</span>
+ 	
+</md-button>
