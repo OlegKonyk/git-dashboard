@@ -1,35 +1,43 @@
 <div layout="column">
 
-  <h1>Commits for: {{$ctrl.repo}}</h1>
+	<h1>{{$ctrl.repo}}</h1>
 
-  <section  style="background: white;" class="md-whiteframe-z1">
-      <div class="md-padding" ng-repeat="commit in $ctrl.commits" ng-class="{'gray': $index%2==0}">
+	<section  style="background: white;" class="md-whiteframe-z1">
 
-              <div layout="row">
-                <div flex>
-                  <p style="color: #B71C1C; margin: 0">{{commit.commit.message}}</p>
-                </div>
-                <div flex class="metrics">
-                  <span>{{commit.sha}}</span>
-                  
-                </div>
-                  
-              </div>
-              <!--div class="description" style="margin: 10px 0px 15px 0px">
-                  <span class="md-subhead">{{repo.description}}</span>
-              </div>
+			<div class="md-padding" ng-repeat="commit in $ctrl.commits" ng-class="{'gray': $index%2==0}">
 
-              <div>
-                  <span class="md-subhead">Last push at: {{repo.pushed_at  | date: 'short'}}</span>
-              </div>
-            
-          <md-card-actions layout="row" layout-align="end center">
-            <md-button ng-href="#/radar-dashboard/commits/{{repo.owner.login}}/{{repo.name}}">Browse commits</md-button>
-          </md-card-actions>
-          <md-divider class="md-default-theme"></md-divider-->
-      </div>
+				<div layout="row">
 
-    </section>
+					<div style="margin-right: 16px;">
+						<a ng-href="{{commit.author.html_url}} target="_blank"" >
+							<img class="avatar" height="36" ng-src="{{commit.author.avatar_url}}" />
+						</a>
+					</div>
+
+					<div class="commit-details" flex="70">
+						<p style="margin: 0; font-size: 1.3em;">
+							<a ng-href="{{commit.html_url}}" target="_blank">
+								<span>{{commit.commit.message | limitTo:80}}</span>
+								<span ng-if="commit.commit.message.length > 80">...</span>
+							</a>
+						</p>
+						<p style="color: #9E9E9E; margin: 0">
+							<a ng-href="{{commit.author.html_url}} target="_blank"" >
+								<b>{{commit.author.login}}</b>
+							</a>
+							<span>commited on {{commit.commit.author.date | date: 'short'}}</span>
+						</p>
+					</div>
+
+					<div flex flex="30" class="metrics">
+						<span>{{commit.sha| limitTo:8}}</span>
+					</div>
+
+				</div>
+
+			</div>
+
+		</section>
 
 </div>
 

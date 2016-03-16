@@ -122,61 +122,15 @@
                 {
                     name: 'Git Dashboard',
                     type: 'link',
-                    url: '#/radar-dashboard',
+                    url: '#/git-dashboard',
                     icon: 'github-circle'
                 },
                 {
                     name: 'Settings',
                     type: 'link',
-                    url: '#/tstt-dashboard',
+                    url: '#/settings',
                     icon: 'settings'
-                }/*,
-                {
-                    name: 'Automation systems',
-                    type: 'link',
-                    url: 'automation-systems',
-                    icon: 'av_timer'
-                },
-                {
-                    name: 'Automation Reports',
-                    type: 'toggle',
-                    icon: 'receipt',
-                    pages: [
-                      {
-                        name: 'Bundle compare',
-                        type: 'link',
-                        url: 'automation-reports/bundle-compare'
-                      },
-                      {
-                        name: 'iOS Automation',
-                        type: 'link',
-                        url: 'automation-reports/ios-automation'
-                      }
-                    ]
-                },
-                {
-                    name: 'Screen Grabs',
-                    type: 'link',
-                    url: 'screen-grabs',
-                    icon: 'image_aspect_ratio',
-                },
-                {
-                    name: 'Admin Dashboard',
-                    type: 'toggle',
-                    icon: 'settings',
-                    pages: [
-                      {
-                        name: 'Email',
-                        type: 'link',
-                        url: 'admin/email'
-                      },
-                      {
-                        name: 'Target',
-                        type: 'link',
-                        url: 'admin/target'
-                      }
-                    ]
-                }*/
+                }
             ];
         }
          

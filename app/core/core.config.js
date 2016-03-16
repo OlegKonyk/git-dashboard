@@ -11,17 +11,17 @@
 		$locationProvider.html5Mode(false);
 
 		$routeProvider
-			.when('/radar-dashboard', {
+			.when('/git-dashboard', {
 				template: '<git-dashboard></git-dashboard>'
 			})
 			.when('/radar-dashboard/commits/:owner/:repo', {
 				template: '<git-commits></git-commits>'
 			})
-			.when('/tstt-dashboard', {
-				template: '<h1>DB Usage</h1>'
+			.when('/settings', {
+				template: '<h1>Settings</h1>'
 			})
 			.otherwise({
-				redirectTo: '/radar-dashboard'
+				redirectTo: '/git-dashboard'
 			});
 
 		$mdIconProvider
