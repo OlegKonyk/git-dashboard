@@ -1,1 +1,32 @@
-<h1>WIDGET</h1>
+
+<section class="md-whiteframe-z1" style= "margin-top: 10px;">
+
+	<h2 class="md-padding">Current Organization: {{$ctrl.currentOrg}}</h2>
+
+	<div layout="row" class="md-padding">
+		<div flex>
+
+			<md-input-container class="md-block" flex-gt-sm>
+				<label>Organization Name</label>
+				<input ng-model="$ctrl.organizationName">
+			</md-input-container>
+
+			<div ng-if="$ctrl.error">
+				<md-toolbar class="md-warn">
+			    	<div class="md-toolbar-tools">
+			      		<h2 class="md-flex">There is no such organization.</h2>
+			    	</div>
+			  	</md-toolbar>
+			</div>
+
+		</div>
+
+		<div flex>
+			<md-button class="md-raised md-primary" ng-click="$ctrl.setOrganization()">Set Organization</md-button>
+		</div>
+
+	</div>
+
+
+	 
+ </section>

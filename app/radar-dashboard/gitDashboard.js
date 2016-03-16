@@ -16,10 +16,11 @@
         function radarDashboardCtrl(tcSocket, $scope, gitDashboard, $filter) {
 
             var ctrl = this;
-
             var orderBy = $filter('orderBy')
-            ctrl.show = true;
 
+            ctrl.show = true;
+            ctrl.order = order;
+            ctrl.changeOrder = changeOrder; 
             ctrl.orderOptions = [
                 { id: 1, name: 'Forks', val: 'forks'},
                 { id: 2, name: 'Stars', val: 'stargazers_count'},
@@ -28,51 +29,49 @@
                 { id: 5, name: 'Size', val: 'size'},
                 { id: 7, name: 'Creation Date', val: 'created_at'},
                 { id: 8, name: 'Last Push', val: 'pushed_at'}
-              ];
+            ];
 
-            //ctrl.orderBy = "forks";
+            loadAllRepos();
 
-             ctrl.order = function(order, ascending) {
+
+            function order(order, ascending) {
                 ctrl.selectedOrder = order;
                 ctrl.reverse = ascending
                 ctrl.allRepos = orderBy(ctrl.allRepos, order.val, ctrl.reverse);
                 console.log(ctrl.allRepos)
-              };
+            };
 
-              ctrl.changeOrder = function() {
+            function changeOrder() {
                 ctrl.order(ctrl.selectedOrder, true)
-              };
+            };
 
+            function loadAllRepos(){
+                if(!gitDashboard.allRepos){
+                    gitDashboard.getCompliteList()
+                        .then(function(data){
 
-            if(!gitDashboard.allRepos){
-                console.log(gitDashboard.allRepos)
-                gitDashboard.getCompliteList()
-                    .then(function(data){
-                        console.log("++++++")
-                        gitDashboard.allRepos = [].concat.apply([], data);
-                        
-                        ctrl.allRepos = gitDashboard.allRepos;
+                            gitDashboard.allRepos = [].concat.apply([], data);
 
-                        ctrl.orgInfo = gitDashboard.orgInfo;
-                        ctrl.show = false;
+                            populateView();
 
-                        ctrl.order(ctrl.orderOptions[0], true);
-                        ctrl.error = false;
-                        console.log(ctrl.allRepos)
-                    }, function(err){
-                            ctrl.error = err.data;
-                            console.log(ctrl.error)
-                            $scope.$apply()
-                    })
-            }else{
-                ctrl.show = false;
-                ctrl.error = false;
-                ctrl.allRepos = gitDashboard.allRepos;
-                ctrl.orgInfo = gitDashboard.orgInfo
-                ctrl.order(ctrl.orderOptions[0], true);
+                        }, function(err){
+                                ctrl.error = err.data;
+                                console.log(err)
+                        })
+                }else{
+                    populateView();
+                }
             }
             
-            
+
+            function populateView(){
+                ctrl.allRepos = gitDashboard.allRepos;
+                ctrl.orgInfo = gitDashboard.orgInfo;
+                ctrl.show = false;
+                ctrl.error = false;
+                console.log(ctrl)
+                ctrl.order(ctrl.orderOptions[0], true);
+            }
             
             
         }

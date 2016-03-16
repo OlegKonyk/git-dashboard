@@ -21,7 +21,7 @@
         service.onHoverIn = onHoverIn;
         service.onHoverOut = onHoverOut;
         service.setPinedNav = setPinedNav;
-        service.toggleSection = toggleSection;
+        //service.toggleSection = toggleSection;
         service.selectSection = selectSection;
         service.selectPage = selectPage;
         
@@ -30,13 +30,12 @@
         $rootScope.$watch(function() { return $mdMedia('gt-sm'); }, pinOnSize);
         
         function selectPage(page) {
-            //console.log(service.data.currentPage, page);
 			return service.data.currentPage === page;
 		};
         
-        function toggleSection(section) {
+        /*function toggleSection(section) {
 			service.data.openedSection = (service.data.openedSection === section ? null : section);
-		};
+		};*/
         
         function selectSection(section) {
 			return service.data.openedSection === section;

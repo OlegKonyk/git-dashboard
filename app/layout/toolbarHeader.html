@@ -7,7 +7,7 @@
         </md-button>
 
         <h1 hide show-gt-xs>
-            <span ng-repeat="path in $ctrl.getCurrentLocation()"><ng-md-icon  ng-if="$index>0" icon="chevron_right" style="fill:#455A64"></ng-md-icon>{{path.name}}</span>
+            <span ng-repeat="path in $ctrl.getCurrentLocation()"><ng-md-icon  ng-if="$index>0" icon="chevron_right" style="fill:#455A64"></ng-md-icon><a ng-href="{{path.url}}">{{path.name}}</span>
         </h1>
 
     </div>

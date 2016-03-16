@@ -7,7 +7,6 @@
        
         gitWidgetService.$inject = ['$resource'];
         function gitWidgetService($resource){
-
             return {
                 
             };   

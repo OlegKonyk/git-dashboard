@@ -18,7 +18,7 @@
 				template: '<git-commits></git-commits>'
 			})
 			.when('/settings', {
-				template: '<h1>Settings</h1>'
+				template: '<git-widget></git-widget>'
 			})
 			.otherwise({
 				redirectTo: '/git-dashboard'
