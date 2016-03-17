@@ -9,7 +9,7 @@
 
 		<section class="md-whiteframe-z1" style= "margin-top: 10px; background-color: #FFCCBC">
 
-			<div layout="row" style="font-size: 20px;">  
+			<div layout="row"  layout-xs="column" layout-sm="column" style="font-size: 20px;">  
 				<div flex class="md-padding"><ng-md-icon icon="account_balance" size='20'></ng-md-icon> {{$ctrl.orgInfo.name}}</div>
 				<div flex class="md-padding">Public Repositories: {{$ctrl.orgInfo.public_repos}}</div>
 				<div flex class="md-padding">Last Update: {{$ctrl.orgInfo.updated_at | date: 'short'}}</div>
@@ -39,7 +39,7 @@
 								<span md-highlight-text="$ctrl.searchText" md-highlight-flags="^i">{{repo.name}}</span>
 						</md-item-template>
 						<md-not-found>
-								No repo matching "{{$ctrl.searchText}}" were found.          
+								No repos matching "{{$ctrl.searchText}}" were found.          
 						</md-not-found>
 					</md-autocomplete>
 				</div> 
