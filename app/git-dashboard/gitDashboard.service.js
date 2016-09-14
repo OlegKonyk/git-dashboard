@@ -1,7 +1,7 @@
 (function () {
     'use strict';
     
-    angular.module('app.radarDashboard')
+    angular.module('app.gitDashboard')
         .service('gitDashboard', gitDashboardService);
        
     gitDashboardService.$inject = ['$resource', '$http', '$window'];
@@ -53,7 +53,7 @@
         function getOrgName(){
             var orgName = storage.getItem('git-organization');
             if((orgName  === null)){
-                return 'Netflix';
+                return 'Google';
             } else{
                 return orgName;
             }

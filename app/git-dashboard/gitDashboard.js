@@ -1,19 +1,19 @@
 (function () {
     'use strict';
 
-    angular.module('app.radarDashboard')
+    angular.module('app.gitDashboard')
     
         .component('gitDashboard', 
             {
                 bindings: {},
-                templateUrl: 'app/radar-dashboard/gitDashboard.html',
-                controller: radarDashboardCtrl
+                templateUrl: 'app/git-dashboard/gitDashboard.html',
+                controller: gitDashboardCtrl
             }
         );
         
-        radarDashboardCtrl.$inject = ['tcSocket', '$scope', 'gitDashboard', '$filter'];
+        gitDashboardCtrl.$inject = ['tcSocket', '$scope', 'gitDashboard', '$filter'];
 
-        function radarDashboardCtrl(tcSocket, $scope, gitDashboard, $filter) {
+        function gitDashboardCtrl(tcSocket, $scope, gitDashboard, $filter) {
 
             var ctrl = this;
             var orderBy = $filter('orderBy')
@@ -38,7 +38,6 @@
                 ctrl.selectedOrder = order;
                 ctrl.reverse = ascending
                 ctrl.allRepos = orderBy(ctrl.allRepos, order.val, ctrl.reverse);
-                console.log(ctrl.allRepos)
             };
 
             function changeOrder() {
@@ -69,7 +68,6 @@
                 ctrl.orgInfo = gitDashboard.orgInfo;
                 ctrl.show = false;
                 ctrl.error = false;
-                console.log(ctrl)
                 ctrl.order(ctrl.orderOptions[0], true);
             }
             

@@ -5,7 +5,7 @@
       'app.core',
       'app.layout',
       'app.widgets',
-      'app.radarDashboard',
+      'app.gitDashboard',
       'app.gitCommits'
   ])
 

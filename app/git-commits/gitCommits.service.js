@@ -8,22 +8,14 @@
         gitCommitsService.$inject = ['$resource'];
         function gitCommitsService($resource){
             var gitCommitsResource = $resource('https://api.github.com/repos/:owner/:repo/commits?per_page=100', {owner: '@owner', repo:'@repo'}, {get: { method: 'GET', isArray: true }});
-            //var gitDashboardResource = $resource('https://api.github.com/orgs/netflix/repos', {}, {post: { method: 'POST', isArray: true }});
-
 
             var service = {
                 commits: {}
 
             };   
-            
-            
-            
 
             service.resource = gitCommitsResource;
-            //service.gitDashboardResource = gitDashboardResource;
-            
-            
-            
+
             return service;
         }
       
